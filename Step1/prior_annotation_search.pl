@@ -25,21 +25,17 @@ use Getopt::Long;
 
 # Save the Current Working Directory int $pwd
 my $pwd = getcwd;
-# To notify the user of the proper way to use the file
 
-
+#Input variables
 my ($family_seed, $families, $superfamily);
-
 GetOptions('seed:s' => \$family_seed,
 			'f:s' => \$families,
 			'superfamily:s' => \$superfamily
 			);
-
-
+			
+#Describe how to run the script
 unless ($family_seed && $families && $superfamily){
-
 			usage();
-
 			}
 			
 #add path to the family_seed file
