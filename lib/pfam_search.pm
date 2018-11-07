@@ -3,8 +3,8 @@ use strict;
 use warnings;
 
 #  This function uses PFAMscan
-#  and parses the results to find
-#  the domain of the proteins 
+#  and parses all the finding domains if a protein sequence
+#  contains a domain of families of interest 
 
 sub pfam_scan {
 
