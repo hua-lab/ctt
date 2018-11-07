@@ -16,15 +16,6 @@ STEP4 = closing_target_trimming_v3.pl
 STEP5 = closing_target_trimming_annotation_v3.pl
 STEP6 = bac_start_end_tunning_v2.pl
 
-.PHONY: default
-default:
-	@echo " ->default 'make' option not accepted." 
-	@echo " Options:"
-	@echo "    'make centos7' : install dependencies for Cent OS 7
-	@echo "    'make all' : run all steps sequentially"
-	@echo "    'make test<1-6>' : to run an individual step"
-	@echo "    'make clear_results' : remove all results data.\n"
-
 .PHONY: all
 all: test1 test2 test3 test4 test5 test6
 	@echo " FULL RUN COMPLETE "
