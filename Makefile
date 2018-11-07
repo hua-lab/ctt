@@ -1,6 +1,6 @@
-FAMILY = BTB
-SUPERFAMILY = btb
-SEED = PF00651_seed.txt
+FAMILY = F-box
+SUPERFAMILY = FBX
+SEED = fbx_seed.txt
 
 ## Note that this Makefile is an example for testing purposes 
 ## - you can use it if you modify the above macros to your settings (FAMILY, SUPERFAMILY, SEED)
