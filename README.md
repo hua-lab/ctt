@@ -58,7 +58,7 @@ Several BioPerl modules, Bio::DB::Fasta, Bio::Tools::Run::StandAloneBlast, Bio::
 
 	This package uses the seed sequences collected at Pfam as gold standard for superfamily annotation.
 	Visit https://pfam.xfam.org, find the seed files of the superfamily
-	Download a FASTA file of the seed sequences without gaps and save it under "seeds" directory.  You may combine several seed files and annotate multiple superfamilies at the same time.
+	Download a FASTA file of the seed sequences without gaps and save it under "seeds" directory.  For example, "fbx_seeds.txt". You may combine several seed files and annotate multiple superfamilies at the same time.
 		
 5. Follow the makefile under "ctt" directory to finish different levels of annotations
 
