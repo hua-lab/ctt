@@ -2,9 +2,8 @@
 #
 #  STEP 2
 #
-#  This function takes the output from step1
-#  and reformats it. Then a BLAST database is made from the 
-#  final results 
+#  This step prepares reference protein sequences and seed sequences
+#  for genome ssearch
 #
 
 use strict;
