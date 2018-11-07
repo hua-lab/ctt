@@ -1,20 +1,18 @@
-#!/usr/bin/env perl
+#!/usr/bin/perl
 #
 # CTT Step 1
 #
-# Requirements: perl, blastp
 #
-# Description: searches thought a genome gff proteome for certain protien f
-#              and superfamilies and returns the results
+# Description: Finding known superfamily members in a prior annotation database
+#             
 #
 # Input:
-#              -t              genome_gff_proteome.txt
-#              -f              protein family  (e.g. F-box)
-#              -s              superfamily     (e.g. fbx)  (superfamily is for save-as only, not for algorithm)
+#              -seed           a fasta file of seed sequences that can be downloaded from Pfam
+#              -f              Pfam ID of a protein family of interest  (e.g. Skp1)
+#              -s              A simplified superfamily name    (e.g. SKP)
 #
-# Ouput: FASTA file for each species that
-#              contains information on all known proteins
-#              from the selected family
+# Ouput: A FASTA file containing the ID, predicted Pfam domains (id, evalue and region), 
+# 		and peptide sequence of each predicted superfamily members 
 
 use warnings;
 use strict;
@@ -22,54 +20,35 @@ use lib "../lib";
 use Bio::DB::Fasta;
 use pfam_search;
 use Cwd;
+use Getopt::Long;
 
-print "STEP 1\n";
 
 # Save the Current Working Directory int $pwd
 my $pwd = getcwd;
 # To notify the user of the proper way to use the file
-my $USAGE="use the format below"."\n "."perl ctt_search.pl -t superfamily_seed_path -f family_name -s superfamily"."\n\n";
 
-##### Valid Run Checking Block #####
-# Notify user and kill program if incorrect number of arguments are supplied
-unless(@ARGV == 6) {
-  print "you must supply the proper arguments (there should be 6)\n";
-  print "this run arguments count = ", scalar @ARGV,"\n";
-  die "Error starting ctt_search.pl","\n\n ->",$USAGE;
-}
-# variables below are to make sure all command line arguments are given
-my $family_seed_init = 0;
-my $families_init = 0;
-my $superfamily_init = 0;
-my $family_seed;
-my $families;
-my $superfamily;
-# turn command Line arguments into variables 
-# for(my $cnt = 0; $cnt < scalar(@ARGV); $cnt = $cnt + 2) {
-for(my $cnt = 0; $cnt < scalar(@ARGV); $cnt += 2) {
-  if($ARGV[$cnt] eq "-t") {
-    $family_seed = $ARGV[$cnt+1];
-    $family_seed_init++;
-  }
-  elsif($ARGV[$cnt] eq "-f") {
-    $families = $ARGV[$cnt+1];
-    $families_init++;
-  }
-  elsif($ARGV[$cnt] eq "-s") {
-    $superfamily = $ARGV[$cnt+1];
-    $superfamily_init++;
-  }
-}
-# check that all command line argument values were initialized properly
-unless($family_seed_init && $families_init && $superfamily_init){
-  print "you must supply the proper arguments\n";
-  die "Error starting ctt_search.pl","\n\n ->",$USAGE;
-}
+
+my ($family_seed, $families, $superfamily);
+
+GetOptions('seed:s' => \$family_seed,
+			'f:s' => \$families,
+			'superfamily:s' => \$superfamily
+			);
+
+
+unless ($family_seed && $families && $superfamily){
+
+			usage();
+
+			}
+			
+#add path to the family_seed file
+$family_seed="../seeds/".$family_seed;
+
 # show user (Print) Command line arguments they passed in
 print "\nfamily_seed=$family_seed\n",
 "families=$families\n",
 "superfamily=$superfamily\n\n";
-##### End Valid Run Checking Block #####
 
 # creates the step1 output folder if it doesn't exist
 system("mkdir -p ../step1_output");
@@ -79,24 +58,24 @@ system("mkdir -p ../step1_output");
 # genomic data(species.fa), annotations(*.gff3) and protein data(*.protien.fa)
 # Format should be tab seperated values of:  *species.fa  *.gff3  *species.protein.fa
 
-open PLANTS,"../species_databases/plant_genome_and_gff_and_proteome_files.txt";
+open ORGANISMS,"../species_databases/organismal_genome_gff3_proteome_files.tab";
 
 # For each line in file
-while (my $plant=<PLANTS>){
+while (my $org=<ORGANISMS>){
 
-  print "digging through plant file \n";
+  print "digging through organism file \n";
   
   # removes endline characters and end spaces
-  chomp $plant;
+  chomp $org;
 
-  # Skip this loop if name does not contain protein files
-  next unless($plant=~/protein/);
+  # Skip this loop if the line does not contain a protein file
+  next unless($org=~/protein/);
 
   # split line of file on tab delimiters into array
-  my @plant=split /\t/,$plant;
+  my @org=split /\t/,$org;
 
   # get name of species.protein.fa 
-  my $species=$plant[2];
+  my $species=$org[2];
 
   # removes any returns globally
   $species=~s/\r//g;
@@ -104,10 +83,8 @@ while (my $plant=<PLANTS>){
   # Printing the name of the file 
   print "species=",$species,"\t","test","\n";
 
-  # Get name of databases by removing .fa from filename
-  # and replacing it with _db
-  my $blast_db=$species;
-  $blast_db=~s/\.fa/\_db/g;
+  # Get blastp database file by appending "_db" to the protein file
+  my $blast_db=$species."\_db";
   $blast_db="../species_databases/".$blast_db;
 
   # Print name of database file
@@ -131,7 +108,7 @@ while (my $plant=<PLANTS>){
 
   print "Completed blastp benchmark\n";
   
-  # First four Chars of species string
+  # First three Chars of species string
   my $species_tag=substr($species,0,3);
 
   my $count_id=0;
@@ -176,17 +153,20 @@ while (my $plant=<PLANTS>){
 
   # hash 
   my %seen;
-
   # get all unique ids 
   my @unique = grep { ! $seen{$_}++ } @blastp_parse_ids;
+  my $unique_hits=scalar @unique;
 
-  print "unique_hit = ",scalar @unique,"\n";
-
-  # Keep track of number of id
+  # Keep track of sequences scanned by pfam_search
   my $count=0;
+  my $scanned_sequences=0;
 
   # for each unique id obtained
   foreach my $id (@unique ) {
+
+    #report  the status of pfam scanning
+    ++$scanned_sequences;
+    print "scanned sequences out of total=",$scanned_sequences,"\tout of\t",$unique_hits,"\n";
 
     # get sequence of specific protein 
     my $pep_obj=$pep_db->get_Seq_by_id($id);
@@ -234,6 +214,7 @@ while (my $plant=<PLANTS>){
 
   }
 
+
   # Create output file for species and dump contents
   # of @peps list into file 
 
@@ -249,4 +230,28 @@ while (my $plant=<PLANTS>){
 
 }
 
-1;
+close ORGANISMS;
+
+###############################################################
+# Sub: Usage
+############################################################### 
+
+sub usage {
+	my $u = <<END;
+
+prior_annotation_search.pl 	
+
+		-seed [name of superfamily seed file] # in this package, it should be "../seeds/"
+		-f [superfamily name given by Pfam
+		-s [simplified family name you named]]
+
+e.g. perl prior_annotation_search.pl -seed Skp1_PF01466_seed.txt -f Skp1 -superfamily Skp
+
+END
+
+ print $u;
+
+ exit(1);
+ 
+}
+
