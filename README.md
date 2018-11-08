@@ -8,9 +8,10 @@ Several BioPerl modules, Bio::DB::Fasta, Bio::Tools::Run::StandAloneBlast, Bio::
 
   	Step 1. use sudo yum to install most required or recommended packages as follows.  In order to have sudo (superuser) privileges, you have to been in the "wheel" group.
 
-		sudo yum -y install gcc expat-devel perl-CGI perl-Clone perl-DB_File perl-DBD-MySQL perl-DBD-Pg 
+		sudo yum -y install gcc git expat-devel perl-CGI perl-Clone perl-DB_File perl-DBD-MySQL perl-DBD-Pg 
 		sudo yum -y install perl-DBD-SQLite perl-Error perl-GD perl-XML-DOM perl-XML-LibXML perl-XML-Parser 
 		sudo yum -y install perl-XML-SAX-Writer perl-XML-Simple perl-XML-Writer perl-XML-Twig perl-File-Which perl-CPAN
+		sudo yum update -y nss curl libcurl
 
 	Step 2. Use CPAN to compile BioPerl and BioPerl-Run including required packages, Moose, IPC-Run, and Bio_FeatureIO for BioPerl-Run.
 	
