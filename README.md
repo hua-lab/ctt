@@ -12,7 +12,8 @@ Several BioPerl modules, Bio::DB::Fasta, Bio::Tools::Run::StandAloneBlast, Bio::
 		sudo yum -y install perl-DBD-SQLite perl-Error perl-GD perl-XML-DOM perl-XML-LibXML perl-XML-Parser 
 		sudo yum -y install perl-XML-SAX-Writer perl-XML-Simple perl-XML-Writer perl-XML-Twig perl-File-Which perl-CPAN
 		sudo yum update -y nss curl libcurl
-
+		sudo yum groupinstall 'Development Tools'
+		
 	Step 2. Use CPAN to compile BioPerl and BioPerl-Run including required packages, Moose, IPC-Run, and Bio_FeatureIO for BioPerl-Run.
 	
 		sudo perl -MCPAN -e shell
