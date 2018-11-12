@@ -62,7 +62,7 @@ Several BioPerl modules, Bio::DB::Fasta, Bio::Tools::Run::StandAloneBlast, Bio::
 	Visit https://pfam.xfam.org, find the seed files of the superfamily
 	Download a FASTA file of the seed sequences without gaps and save it under "seeds" directory.  For example, "fbx_seeds.txt". You may combine several seed files and annotate multiple superfamilies at the same time.
 		
-5. Undet ./ctt directory, run ctt.pl script using the format as follows.
+5. Under ./ctt directory, run ctt.pl script using the format as follows.
 
 		perl ctt.pl -seed family_seed_file.txt -f Pfam_family_id -superfamily simplified_family_id_you_named
 
