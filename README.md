@@ -62,9 +62,9 @@ Several BioPerl modules, Bio::DB::Fasta, Bio::Tools::Run::StandAloneBlast, Bio::
 	Visit https://pfam.xfam.org, find the seed files of the superfamily
 	Download a FASTA file of the seed sequences without gaps and save it under "seeds" directory.  For example, "fbx_seeds.txt". You may combine several seed files and annotate multiple superfamilies at the same time.
 		
-5. Undet ./ctt directory, run ctt.pl script using the format as below.
+5. Undet ./ctt directory, run ctt.pl script using the format as follows.
 
-	perl ctt.pl -seed family_seed_file.txt -f Pfam_family_id -superfamily simplified_family_id_you_named
+		perl ctt.pl -seed family_seed_file.txt -f Pfam_family_id -superfamily simplified_family_id_you_named
 
 6. Output files should be automatically saved in ./output direstory from each step of annotation.
 
@@ -73,7 +73,3 @@ Several BioPerl modules, Bio::DB::Fasta, Bio::Tools::Run::StandAloneBlast, Bio::
 Hua Z, Zou C, Shiu SH, Vierstra RD: Phylogenetic comparison of F-Box (FBX) gene superfamily within the plant kingdom reveals divergent evolutionary histories indicative of genomic drift. PLoS One 2011, 6(1):e16219.
 
 Hua Z, Early M: Closing-Target_Trimming: a Perl Package for Uncovering Hidden Loci of Superfamilies. BMC Bioinformatics 2019, (In preparation).
-
-
-	
-		
