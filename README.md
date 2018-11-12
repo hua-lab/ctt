@@ -28,7 +28,7 @@ Several BioPerl modules, Bio::DB::Fasta, Bio::Tools::Run::StandAloneBlast, Bio::
 		cpan>install CJFIELDS/Bio-FeatureIO-1.6.905.tar.gz
 		cpan>install CJFIELDS/BioPerl-Run-1.007002.tar.gz
 		
-2. Install blast-suite, hmmer, genewise, pfam database, and pfamscan
+2. Install blast-suite, hmmer, genewise, pfam database, pfamscan, and CD-HIT
 
 	Under "dependencies" directory, do
 
