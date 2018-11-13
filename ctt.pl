@@ -130,7 +130,7 @@ foreach my $tblastn_file(@files){
 	my $ctt_summary=$ctt[1];
 
 	$tblastn_file=~s/$tblastn_dir//g;
- 	my $trimmed_gdna_file="../step4_output/".$tblastn_file."ctt_adjusted";
+ 	my $trimmed_gdna_file="./step4_output/".$tblastn_file."ctt_adjusted";
 
   	open CTT_GDNA, ">$trimmed_gdna_file";
   	print CTT_GDNA @$trimmed_gdnas;
