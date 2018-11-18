@@ -66,7 +66,7 @@ Several BioPerl modules, Bio::DB::Fasta, Bio::PrimarySeq, Bio::Pfam::Scan::PfamS
 
 		perl ctt.pl -seed family_seed_file.txt -f Pfam_family_id -superfamily simplified_family_id_you_named
 
-6. Output files should be automatically saved in ./output direstory from each step of annotation.
+6. Output files should be automatically saved in ./ctt_output direstory from each step of annotation.
 
 7. References
 
