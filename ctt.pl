@@ -550,6 +550,8 @@ foreach my $tuned_pep_file(@tuned_pep_files){
  		print FINAL @final_report,"\n";
  		close FINAL;
 
+system("mkdir -p ./ctt_output");
+system("mv step* ./ctt_output");
 
 
 exit;
