@@ -461,8 +461,8 @@ foreach my $tuned_pep_file(@tuned_pep_files){
 
 		my @final_new_loci=();
 		my $count=0;
-		my $count_pseudo;
-		my $count_estop;
+		my $count_pseudo=0;
+		my $count_estop=0;
 		my @peps=();
 		my @cdss=();
 		my @gdnas=();
