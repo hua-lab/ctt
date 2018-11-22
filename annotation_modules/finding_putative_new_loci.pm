@@ -28,7 +28,7 @@ sub finding_putative_new_loci {
      chomp $org; 
     
      #skip head line if any
-     next unless($org=~/protein/);
+     next unless($org=~/(protein|pep)/);
 
      #Get names of genome and gff file
      my ($genome,$gff)=($org=~/(.*)\t(.*)\t/);
@@ -37,7 +37,7 @@ sub finding_putative_new_loci {
      my $genome_file="./species_databases/".$genome;
      
      #nane for genome DB file
-     my $genome_db=$genome_file."\_db";
+     my $genome_db=$genome_file."\.db";
 
      #Name for GFF file
      my $gff_file="./species_databases/".$gff;
