@@ -44,7 +44,7 @@ sub prior_annotation_search{
       chomp $org;
 
       # Skip this loop if the line does not contain a protein file
-      next unless($org=~/protein/);
+      next unless($org=~/(protein|pep)/);
 
       # split line of file on tab delimiters into array
       my @org=split /\t/,$org;
@@ -59,7 +59,7 @@ sub prior_annotation_search{
       print "species=",$species,"\t","test","\n";
 
       # Get blastp database file by appending "_db" to the protein file
-      my $blast_db=$species."\_db";
+      my $blast_db=$species."\.db";
       $blast_db="./species_databases/".$blast_db;
 
       # Print name of database file
