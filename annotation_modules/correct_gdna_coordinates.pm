@@ -45,6 +45,7 @@ sub correct_gdna_coordinates{
               my $p1=$start+(length $gdna_head);
               my $p2=$end-(length $gdna_tail);
               my $tuned_gdna=$gdna_obj->subseq($p1,$p2);
+	      #some genomes do not use "0" to count the position of the first nucleotide
               my $tuned_gdna_2=$gdna_obj->subseq(($p1+1),$p2);
               if($annotated_gdna eq $tuned_gdna){
                      $gdna=">".$id." \| ".$chr."\-plus\-".$p1."\-".$p2.$header_rest."\n".$tuned_gdna."\n";
@@ -77,6 +78,7 @@ sub correct_gdna_coordinates{
 		my $p1=$start+(length $gdna_tail);
                 my $p2=$end-(length $gdna_head);
                 my $tuned_gdna=$gdna_obj->subseq($p1,$p2);
+		#some genomes do not use "0" to count the position of the first nucleotide
                 my $tuned_gdna_2=$gdna_obj->subseq(($p1+1),$p2);
                 $tuned_gdna=reverse $tuned_gdna;
                 $tuned_gdna=~tr/ACGTacgt/TGCAtgca/;
