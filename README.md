@@ -1,4 +1,4 @@
-# closing_target_trimming
+# ctt (closing_target_trimming)
 
 This package is designed to find most, if not all, members of a protein superfamily in any sequenced genome.  It applies Perl scripting under CentOS linux system and sequence-similarity-based annotation algorithm.  For researchers who are familiar with open source programming, it should be straightforward to make the package running.  For beginners in bioinformatics, please follow the steps below to compile dependencies used in this package and process the different levels of superfamily annotations accordingly.
 
