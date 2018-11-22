@@ -26,12 +26,12 @@ sub correct_gdna_coordinates{
     if($end>$length){
          $end=$length;
          }
-    elsif($start<0){
+    if($start<0){
          $start=0;
          }
     my $gdna_obj=$genome_db->get_Seq_by_id($chr);
     my $gdna=$gdna_obj->subseq($p1,$p2);
-    
+ 
     # compare the extended gdna and annotated gdna 
     # to correct the coordinates
     if($id=~/plus/){
@@ -41,12 +41,16 @@ sub correct_gdna_coordinates{
       else{
           $gdna=$gdna_obj->subseq($start,$end);
           if($gdna=~/$annotated_gdna/){
-              my($gdna_head,$gdna_tail)=($gdna=~/^(\w+?)$annotated_gdna(\w+?)$/);
+              my($gdna_head,$gdna_tail)=($gdna=~/^(\w*)$annotated_gdna(\w*)$/);
               my $p1=$start+(length $gdna_head);
               my $p2=$end-(length $gdna_tail);
               my $tuned_gdna=$gdna_obj->subseq($p1,$p2);
+              my $tuned_gdna_2=$gdna_obj->subseq(($p1+1),$p2);
               if($annotated_gdna eq $tuned_gdna){
                      $gdna=">".$id." \| ".$chr."\-plus\-".$p1."\-".$p2.$header_rest."\n".$tuned_gdna."\n";
+                    }
+              elsif($annotated_gdna eq $tuned_gdna_2){
+                     $gdna=">".$id." \| ".$chr."\-plus\-".$p1."\-".$p2.$header_rest."\n".$tuned_gdna_2."\n";
                     }
               else{
                 die $id,"\n",$annotated_gdna,"\n","need_check","\n",$tuned_gdna,"\n";
@@ -69,14 +73,20 @@ sub correct_gdna_coordinates{
             $gdna=reverse $gdna;
             $gdna=~tr/ACGTacgt/TGCAtgca/;
             if($gdna=~/$annotated_gdna/){
-                my($gdna_head,$gdna_tail)=($gdna=~/^(\w+?)$annotated_gdna(\w+?)$/);
+                my($gdna_head,$gdna_tail)=($gdna=~/^(\w*)$annotated_gdna(\w*)$/);
 		my $p1=$start+(length $gdna_tail);
                 my $p2=$end-(length $gdna_head);
                 my $tuned_gdna=$gdna_obj->subseq($p1,$p2);
+                my $tuned_gdna_2=$gdna_obj->subseq(($p1+1),$p2);
                 $tuned_gdna=reverse $tuned_gdna;
                 $tuned_gdna=~tr/ACGTacgt/TGCAtgca/;
+                $tuned_gdna_2=reverse $tuned_gdna_2;
+                $tuned_gdna_2=~tr/ACGTacgt/TGCAtgca/;
                 if ($annotated_gdna eq $tuned_gdna){
                         $gdna=">".$id." \| ".$chr."\-minus\-".$p1."\-".$p2.$header_rest."\n".$tuned_gdna."\n";
+                       }
+                elsif($annotated_gdna eq $tuned_gdna_2){
+                        $gdna=">".$id." \| ".$chr."\-plus\-".$p1."\-".$p2.$header_rest."\n".$tuned_gdna_2."\n";
                        }
                 else{
 
