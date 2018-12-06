@@ -571,7 +571,6 @@ sub usage {
         -f [superfamily name given by Pfam
         -s [simplified family name you named]]
 
-e.g. perl ctt.pl -seed Skp1_PF01466_seed.txt -f Skp1 -superfamily Skp
 e.g. perl ctt.pl -seed BTB_PF00651_seed.txt -f BTB#BTB_2#BTB_3 -superfamily BTB
 e.g. perl ctt.pl -seed FBX_PF00646_seeds.txt -f F-box#F-box-like -superfamily FBX
 
