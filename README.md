@@ -54,22 +54,23 @@ Several BioPerl modules, Bio::DB::Fasta, Bio::PrimarySeq, Bio::Pfam::Scan::PfamS
 	
 		makeblastdb -in proteome_file_name -dbtype prot -out proteome_file_name_db
 	
-		e.e. makeblastdb -in Athaliana_167_TAIR10.protein.fa -dbtype prot -out Athaliana_167_TAIR10.protein.fa_db
+		e.g. makeblastdb -in Athaliana_167_TAIR10.protein.fa -dbtype prot -out Athaliana_167_TAIR10.protein.fa_db
 		
 4. Collect seed sequences for superfamilies in which you are interested under directory "seeds".
 
-	This package uses the seed sequences collected at Pfam as gold standard for superfamily annotation.
+	This package uses the seed sequences collected at Pfam as a gold standard for superfamily annotation.
 	Visit https://pfam.xfam.org, find the seed files of the superfamily
-	Download a FASTA file of the seed sequences without gaps and save it under "seeds" directory.  For example, "fbx_seeds.txt". You may combine several seed files and annotate multiple superfamilies at the same time.
+	Download a FASTA file of the seed sequences without gaps and save it under "seeds" directory.  For example, "FBX_PF00646_seeds.txt". You may combine several seed files and annotate multiple superfamilies at the same time.
 		
 5. Under ./ctt directory, run ctt.pl script using the format as follows.
 
 		perl ctt.pl -seed family_seed_file.txt -f Pfam_family_id -superfamily simplified_family_id_you_named
+		e.g. perl ctt.pl -seed FBX_PF00646_seeds.txt -f F-box#F-box-like -superfamily FBX
 
-6. Output files should be automatically saved in ./ctt_output direstory from each step of annotation.
+6. Output files should be automatically saved in direstory ./ctt_output from each step of annotation.
 
 7. References
 
 Hua Z, Zou C, Shiu SH, Vierstra RD: Phylogenetic comparison of F-Box (FBX) gene superfamily within the plant kingdom reveals divergent evolutionary histories indicative of genomic drift. PLoS One 2011, 6(1):e16219.
 
-Hua Z, Early M: Closing-Target_Trimming: a Perl Package for Uncovering Hidden Superfamily Members. BMC Bioinformatics 2019, (In preparation).
+Hua Z, Early M: Closing-Target_Trimming: a Perl Package for Uncovering Hidden Superfamily Members. PLoS One 2019, (Under review).
