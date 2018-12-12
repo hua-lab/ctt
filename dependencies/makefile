@@ -54,6 +54,7 @@ genewise:
 pfam:
 	cd ; \
 	echo "-->step4/?? setting up pfam databases..." ; \
+	mkdir -p ./ctt/databases/pfam/ ; \
 	cd ./ctt/databases/pfam/ ; \
 	wget ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz ; \
 	gunzip Pfam-A.hmm.gz ; \
