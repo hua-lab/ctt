@@ -83,4 +83,4 @@ CD-HIT:
 	git clone https://github.com/weizhongli/cdhit.git ; \
 	cd ./cdhit ; \
 	make ; \
-	sudo cp cd-hit /usr/local/bin 
+	sudo cp cd-hit /usr/local/bin
