@@ -54,6 +54,9 @@ sub finding_putative_new_loci {
 
      #running tblastn
      print "running tblastn\n";
+     print "query=",$family_seed,"\n";
+     print "tblastn_db=",$genome_db,"\n";
+     
      system("tblastn -query $family_seed -db $genome_db -evalue 1e-05 -outfmt 6 -out $tblastn_file -num_threads $half_threads");
 
      #AWK output name 
