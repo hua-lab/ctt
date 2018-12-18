@@ -48,7 +48,7 @@ genewise:
 	sudo cp -vr bin/ /usr/local ; \
 	echo "appending WISECONFIGDIR to your enviornment" ; \
 	cd ; \
-	echo "WISECONFIGDIR=/home/ctt/dependencies/wise2.4.1/wisecfg" >> .bash_profile ; \
+	echo "WISECONFIGDIR=/home/$USER/ctt/dependencies/wise2.4.1/wisecfg" >> .bash_profile ; \
 	echo "export WISECONFIGDIR" >> .bash_profile
 
 .PHONY: pfam
