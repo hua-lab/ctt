@@ -144,6 +144,7 @@ sub closing_target_trimming {
           print GDNA_IN $seq;
           close GDNA_IN;
           my $pro_gdna=$pro_seq.$seq;
+	  print $pro_gdna,"\n";
     #run genewise
           system ("genewise $genewise_pro_in $genewise_gdna_in -sum > $genewise_out");
 
