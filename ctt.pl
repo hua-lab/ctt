@@ -174,7 +174,7 @@ my @sort_ctt_files=sort{$a cmp $b}@ctt_files;
 
 system("mkdir -p ./step5_output");
 
-my $blast_db=$family_ref100peps."_db";
+my $blast_db=$family_ref100peps."\.db";
 my $db_pro=Bio::DB::Fasta->new($family_ref100peps);
 
 foreach my $ctt_file(@sort_ctt_files){
