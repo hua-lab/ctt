@@ -43,6 +43,7 @@ genewise:
 	find ./ -name makefile | xargs sed -i 's/glib-config/pkg-config --libs glib-2.0/' ; \
 	find models/ -name phasemodel.c | xargs sed -i 's/isnumber/isdigit/' ; \
 	echo "corrections to wise2.4.1 complete..." ; \
+	sudo yum -y install glib2-devel
 	make all ; \
 	sudo cp -vr bin/ /usr/local ; \
 	echo "appending WISECONFIGDIR to your enviornment" ; \
