@@ -10,8 +10,6 @@ use Bio::DB::Fasta;
 use wise_transcript_parse;
 use Bio::SeqIO;
 
-print "STEP 5\n";
-
 sub annotate_the_best_model{
 
 	my($seq,$ref_seq_file)=@_;
