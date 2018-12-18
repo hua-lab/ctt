@@ -535,7 +535,7 @@ foreach my $tuned_pep_file(@tuned_pep_files){
  		print TUNED_GDNA @gdnas,"\n";
  		close TUNED_GDNA;
 
-		my $species_final_report=$species_tag."\t".$count_pseudo,"\t".$count_estop."\t".$count;
+		my $species_final_report=$species_tag."\t".$count_pseudo."\t".$count_estop."\t".$count;
 		push(@final_report,$species_final_report);
 
 
