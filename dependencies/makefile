@@ -1,5 +1,5 @@
 .PHONY: all
-all: blast hmmer genewise pfam pfamscan
+all: blast hmmer genewise pfam pfamscan CD-HIT
 
 
 .PHONY: blast
