@@ -40,7 +40,7 @@ Several BioPerl modules, Bio::DB::Fasta, Bio::PrimarySeq, Bio::Pfam::Scan::PfamS
 
     3.1. Collect genome and prior whole genome annotation (gff3 and protein sequence) databases and save them under "species_databases".  You may collect these databases for as many genomes as you want if your space is allowed.
 	
-    3.2. Create a tab file, termed "organismal_genome_gff3_proteome_files.tab" to organize the genomes you want to annotate.  On each new line, list the genome file name (ended with *.fa), gff3 file name (ended with *.gene.gff3), and protein annotation file name (ended with *.protein.fa).  The files should be separated with tab but not space characters.  You may use vim editor to create this file under the directory of "species_databases".
+    3.2. Create a tab file, termed "organismal_genome_gff3_proteome_files.tab" to organize the genomes you want to annotate.  On each new line, list the genome file name (ended with *.fa), gff3 file name (ended with *.gene.gff3), and protein annotation file name (ended with *.protein.fa).  The files should be separated with "tab" but not space characters.  You may use vim editor to create this file under the directory of "species_databases".
 	
     3.3. Make both genome and proteome blast databases.
 	
