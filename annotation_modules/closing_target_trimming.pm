@@ -16,7 +16,7 @@ sub closing_target_trimming {
  
    my ($query_db,$sorted_id_queries,$ref_seq_file)=@_;
 
-   my $blast_db=$ref_seq_file."_db";
+   my $blast_db=$ref_seq_file."\.db";
    my $db_pro=Bio::DB::Fasta->new($ref_seq_file);
  
    my $count=0;
