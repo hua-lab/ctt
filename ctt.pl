@@ -441,6 +441,7 @@ system("mkdir -p ./step7_output");
 my @final_report=();
 #my $families="F-box#F-box-like";
 #my $superfamily="FBX";
+print "species","\t","count_pseudo","\t","count_estop","\t","count","\n";
 
 foreach my $tuned_pep_file(@tuned_pep_files){
 		#make pep, cds gdna files and db index files annotated in Step 6 	
