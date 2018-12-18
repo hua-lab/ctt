@@ -60,7 +60,7 @@ print PEP @$peps;
 close PEP;
 
 my $family_ref100peps="./step2_output/family_ref100peps.fa";
-my $family_ref100peps_db="./step2_output/family_ref100peps.fa_db";
+my $family_ref100peps_db="./step2_output/family_ref100peps.fa.db";
 
 system("cd-hit -i ./step2_output/family_peps.fa -o $family_ref100peps -c 1.0");
 system("makeblastdb -in $family_ref100peps -dbtype prot -out $family_ref100peps_db");
