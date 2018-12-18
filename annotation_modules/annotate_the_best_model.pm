@@ -15,7 +15,7 @@ sub annotate_the_best_model{
 	my($seq,$ref_seq_file)=@_;
 	my($id_query,$query_seq)=($seq=~/^>(.*)\n(\w+|\n)\n$/s);
 	
-	my $blast_db=$ref_seq_file."_db";
+	my $blast_db=$ref_seq_file."\.db";
 	my $db_pro=Bio::DB::Fasta->new($ref_seq_file);
 
 	my $query_file="test.fa";
