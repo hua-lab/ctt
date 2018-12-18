@@ -1,1 +1,1 @@
-Athaliana_167_TAIR9.fa  Athaliana_167_TAIR10.gene.gff3  Athaliana_167_TAIR10.protein.fa
+genome_file_name  gff3_file_name  proteome_file_name (the file names are separated with one TAB character)
