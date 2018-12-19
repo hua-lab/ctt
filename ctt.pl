@@ -439,7 +439,7 @@ closedir(DIR);
 system("mkdir -p ./step7_output");
 
 my @final_report=();
-my $final_report_head="species"."\t"."count_pseudo"."\t"."count_estop"."\t"."count"."\n";
+my $final_report_head="species"."\t"."count_pseudo"."\t"."count_estop"."\t"."count_pep"."\n";
 push(@final_report,$final_report_head); 
 
 foreach my $tuned_pep_file(@tuned_pep_files){
