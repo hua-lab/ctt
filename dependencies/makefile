@@ -14,7 +14,7 @@ blast:
 	cd ncbi* ; \
 	cp -v bin/* $$HOME/bin ; \
 	cd .. ; \
-	rm -f ncbi*linux.tar.gz* ; \
+	rm -f ncbi*linux.tar.gz*
 
 .PHONY: hmmer
 hmmer:
