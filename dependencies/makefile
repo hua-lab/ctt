@@ -56,7 +56,7 @@ genewise:
 	echo "corrections to wise2.4.1 complete..." ; \
 	sudo yum -y install glib2-devel ; \
 	make all ; \
-	cp -vr bin/* $$HOME/bin ; \
+	cp -v bin/* $$HOME/bin ; \
 	echo "appending WISECONFIGDIR to your enviornment" ; \
 	cd ; \
         echo "WISECONFIGDIR=\$$HOME/ctt/dependencies/wise2.4.1/wisecfg" >> .bash_profile ; \
