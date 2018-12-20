@@ -34,7 +34,11 @@ Several BioPerl modules, Bio::DB::Fasta, Bio::PrimarySeq, Bio::Pfam::Scan::PfamS
 
 		"make all" if you have none of these packages installed.
 		
-		If some packages have been installed, you may just do "make package" ("package" could be "blast", "hmmer", "genewise", "pfam", "pfamscan", or "CD-HIT" depending on which package you need to install)
+		If some packages have been installed, you may just do "make package" ("package" could be "blast", "hmmer",
+		"CD-HIT", "genewise", "pfam", "pfamscan", or "CD-HIT" depending on which package you need to install)
+		
+		The exacutable files of "blast", "hmmer", "CD-HIT", and "genewise" are saved in $HOME/bin directory, which
+		should be added in the PATH.
 		
 3. Organize genomes you want to annotate
 
