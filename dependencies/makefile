@@ -1,6 +1,8 @@
-.PHONY: all
-all: blast hmmer genewise pfam pfamscan CD-HIT
 
+$(shell mkdir -p $$HOME/bin)
+
+.PHONY: all
+all: blast hmmer CD-HIT genewise pfam pfamscan
 
 .PHONY: blast
 blast:
@@ -10,9 +12,9 @@ blast:
 	wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/ncbi*linux.tar.gz ; \
 	tar -xvzf ncbi*linux.tar.gz ; \
 	cd ncbi* ; \
-	sudo cp -vr bin/ /usr/local ; \
+	cp -v bin/* $$HOME/bin ; \
 	cd .. ; \
-	rm -f ncbi*linux.tar.gz*
+	rm -f ncbi*linux.tar.gz* ; \
 
 .PHONY: hmmer
 hmmer:
@@ -22,12 +24,21 @@ hmmer:
 	wget http://eddylab.org/software/hmmer/hmmer-3.2.tar.gz ; \
 	tar -xvzf hmmer-3.2.tar.gz ; \
 	cd hmmer* ; \
-	./configure --prefix /usr/local ; \
+	./configure --prefix $$HOME ; \
 	make ; \
 	make check ; \
-	sudo make install ; \
+	make install ; \
 	cd .. ; \
 	rm -f hmmer-3.2.tar.gz*
+
+.PHONY: CD-HIT
+CD-HIT:
+	cd ; \
+	cd ./ctt/dependencies ; \
+	git clone https://github.com/weizhongli/cdhit.git ; \
+	cd ./cdhit ; \
+	make ; \
+	cp cd-hit $$HOME/bin
 
 .PHONY: genewise
 genewise:
@@ -45,10 +56,10 @@ genewise:
 	echo "corrections to wise2.4.1 complete..." ; \
 	sudo yum -y install glib2-devel ; \
 	make all ; \
-	sudo cp -vr bin/ /usr/local ; \
+	cp -vr bin/* $$HOME/bin ; \
 	echo "appending WISECONFIGDIR to your enviornment" ; \
 	cd ; \
-	echo "WISECONFIGDIR=/home/$$USER/ctt/dependencies/wise2.4.1/wisecfg" >> .bash_profile ; \
+        echo "WISECONFIGDIR=\$$HOME/ctt/dependencies/wise2.4.1/wisecfg" >> .bash_profile ; \
 	echo "export WISECONFIGDIR" >> .bash_profile
 
 .PHONY: pfam
@@ -77,11 +88,3 @@ pfamscan:
 	cd .. ; \
 	rm -rf ./PfamScan
 
-.PHONY: CD-HIT
-CD-HIT:
-	cd ; \
-	cd ./ctt/dependencies ; \
-	git clone https://github.com/weizhongli/cdhit.git ; \
-	cd ./cdhit ; \
-	make ; \
-	sudo cp cd-hit /usr/local/bin
