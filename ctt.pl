@@ -349,7 +349,7 @@ foreach my $annotated_gdna_file(@annotated_gdna_files){
   		my @b_fields;
 
   		my @sorted_gdnas=sort {
-    			@a_fields=split / \| /, $a;   #todo: this seems to be some syntax problem
+    			@a_fields=split / \| /, $a;
     			@b_fields=split / \| /, $b;
     			$a_fields[1] cmp $b_fields[1];
   		    }@gdnas;
