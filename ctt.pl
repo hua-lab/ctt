@@ -314,17 +314,17 @@ closedir(DIR);
 
 system("mkdir -p ./step6_output");
 
-		#get GFF3 file for prior annotations
-                my %gff=();
-                open LIST,"<./species_databases/organismal_genome_gff3_proteome_files.tab";
-                while(my $list=<LIST>){
-                     chomp $list;
-                     next unless($list=~/(pep|protein)/);
-                     my @list=split /\t/,$list;
-                     my $gff3_file="./species_databases/".$list[1];
-                     $gff{$list[0]}=$gff3_file;
-                     }
-                close LIST;
+#get GFF3 file for prior annotations
+my %gff=();
+open LIST,"<./species_databases/organismal_genome_gff3_proteome_files.tab";
+while(my $list=<LIST>){
+      chomp $list;
+      next unless($list=~/(pep|protein)/);
+      my @list=split /\t/,$list;
+      my $gff3_file="./species_databases/".$list[1];
+       $gff{$list[0]}=$gff3_file;
+                  }
+close LIST;
 
 foreach my $annotated_gdna_file(@annotated_gdna_files){
 
@@ -371,8 +371,9 @@ foreach my $annotated_gdna_file(@annotated_gdna_files){
 		my $x=">y \| x \| z \| a \| b \| c \| d \| e";
 	        unshift (@sorted_gdnas_unshift,$x);
 		
-		#remove duplicates 1) duplicates of new loci (array sort and remove duplicates)
-		# 2)duplicates of prior annotations (coordinate comparison with GFF3 file)
+		#remove duplicates 
+		# 1) duplicates of new loci (array sort and remove duplicates)
+		# 2) duplicates of prior annotations (coordinate comparison with GFF3 file)
 
  		my @tuned_gdnas=();
 		my @tuned_ids=();
@@ -388,7 +389,6 @@ foreach my $annotated_gdna_file(@annotated_gdna_files){
 			#only one is selected 
 			unless ($gdna_pos eq $gdna_unshift_pos) {
                              #further check whether the new locus is in a locus that has been annotated
-
                             my ($chr,$strand,$start,$end)=($gdna=~/ \| (.*)\-(minus|plus)\-(\d+)\-(\d+)\#.*/);
                             $strand=~s/minus/\-/g;
                             $strand=~s/plus/\+/g;
