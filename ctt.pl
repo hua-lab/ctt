@@ -141,7 +141,7 @@ foreach my $tblastn_file(@tblastn_files){
 	my $trimmed_gdnas=$ctt[0];
 	my $low_gw_score_seqs=$ctt[1];
 	my $ctt_summary=$ctt[2];
-print "summary=",$ctt_summary,"\n";
+	print "summary=",$ctt_summary,"\n";
 	my $tblastn_dir="./step3_output/";
 	$tblastn_file=~s/$tblastn_dir//g;
  	my $trimmed_gdna_file="./step4_output/".$tblastn_file."ctt_adjusted";
