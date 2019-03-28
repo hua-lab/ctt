@@ -12,7 +12,7 @@ sub correct_gdna_coordinates{
 
     my ($genome_file,$id,$header,$annotated_gdna)=@_;
     my $genome_db=Bio::DB::Fasta->new($genome_file);
-    my $header_rest=($header=~/$id\s(.*)/);
+    my $header_rest=($header=~/$id (.*)/);
     my ($chr,$strand, $p1, $p2)=($id=~/.*bac_fd(.*)(plus|minus)\:(\d+)\:(\d+)/);
     
     #add 5000 bases on both ends whose coordinates are not correct
