@@ -88,7 +88,7 @@ sub correct_gdna_coordinates{
                         $gdna=">".$id." \| ".$chr."\-minus\-".$p1."\-".$p2.$header_rest."\n".$tuned_gdna."\n";
                        }
                 elsif($annotated_gdna eq $tuned_gdna_2){
-                        $gdna=">".$id." \| ".$chr."\-plus\-".$p1."\-".$p2.$header_rest."\n".$tuned_gdna_2."\n";
+                        $gdna=">".$id." \| ".$chr."\-minus\-".$p1."\-".$p2.$header_rest."\n".$tuned_gdna_2."\n";
                        }
                 else{
 
