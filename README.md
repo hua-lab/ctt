@@ -77,7 +77,7 @@ Several BioPerl modules, Bio::DB::Fasta, Bio::PrimarySeq, Bio::Pfam::Scan::PfamS
 
 	Hua Z, Zou C, Shiu SH, Vierstra RD: Phylogenetic comparison of F-Box (FBX) gene superfamily within the plant kingdom reveals divergent evolutionary histories indicative of genomic drift. PLoS One 2011, 6(1):e16219.
 
-	Hua Z. Using CTT for comprehensive superfamily gene annotations. Protocolsio. 2019. doi: dx.doi.org/10.17504/protocols.io.zf4f3qw.
+	Hua Z. Using CTT for comprehensive superfamily gene annotations. Protocols.io. 2019. doi: dx.doi.org/10.17504/protocols.io.zf4f3qw.
 
 	Hua Z, Early JM: Closing Target Trimming: a Perl Package for Discovering Hidden Superfamily Loci in Genomes. PLoS One 2019,  (Under review).
 
