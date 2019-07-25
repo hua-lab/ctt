@@ -75,7 +75,7 @@ Several BioPerl modules, Bio::DB::Fasta, Bio::PrimarySeq, Bio::Pfam::Scan::PfamS
 
 7. References
 
-	Hua Z, Zou C, Shiu SH, Vierstra RD: Phylogenetic comparison of F-Box (FBX) gene superfamily within the plant kingdom reveals divergent evolutionary histories indicative of genomic drift. PLoS One 2011, 6(1):e16219.
+	Hua Z, Zou C, Shiu SH, Vierstra RD: Phylogenetic comparison of F-Box (FBX) gene superfamily within the plant kingdom reveals divergent evolutionary histories indicative of genomic drift. PLoS One 2011, 6(1):e16219. https://doi.org/10.1371/journal.pone.0016219
 
 	Hua Z. Using CTT for comprehensive superfamily gene annotations. Protocols.io. 2019. doi: dx.doi.org/10.17504/protocols.io.zf4f3qw.
 
