@@ -393,7 +393,7 @@ foreach my $annotated_gdna_file(@annotated_gdna_files){
                             $strand=~s/minus/\-/g;
                             $strand=~s/plus/\+/g;
                             my $out_put_file="awk.txt";
-                            system("awk '(\$1==\"$chr\" && \$7==\"$strand\" && \$4<= \"$start\"    && \$5 >= \"$end\") {cnt++} END {print cnt}' $gff3_file > $out_put_file");
+                            system("awk '(\$1==\"$chr\" && \$7==\"$strand\" && \$4<= $start && \$5 >= $end) {cnt++} END {print cnt}' $gff3_file > $out_put_file");
                             open AWK,"<$out_put_file";
                             while (my $awk=<AWK>){
                                   chomp $awk;
