@@ -179,7 +179,7 @@ sub finding_putative_new_loci {
         # run awk so we can find which entries have been previously annotated. 
         # Here the midpoint position was not applied because the target domain might have been truncated in the annotated gene which does not show its presence.    
         # The overlapping of the predicted domain with the annotated gene will be removed at the last step of the ctt annotation.
-        system("awk '(\$1==\"$unique_hit_id\" && \$7==\"$strand\" && \$4<= \"$unique_hit_start\"    && \$5 >= \"$unique_hit_end\") {cnt++} END {print cnt}' $gff_file > $out_put_file");    
+        system("awk '(\$1==\"$unique_hit_id\" && \$7==\"$strand\" && \$4<= $unique_hit_start  && \$5 >= $unique_hit_end) {cnt++} END {print cnt}' $gff_file > $out_put_file");    
 
         open AWK,"<$out_put_file";
 
