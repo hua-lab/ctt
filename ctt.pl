@@ -149,10 +149,12 @@ foreach my $tblastn_file(@tblastn_files){
         my $low_gw_score_seq_file=$trimmed_gdna_file;
         $low_gw_score_seq_file=~s/ctt_adjusted/low_score/g;
 
-  	open CTT_GDNA, ">$trimmed_gdna_file";
-  	print CTT_GDNA @$trimmed_gdnas;
-  	close CTT_GDNA;
-
+	if((scalar @$trimmed_gdnas)>1){
+  		open CTT_GDNA, ">$trimmed_gdna_file";
+  		print CTT_GDNA @$trimmed_gdnas;
+  		close CTT_GDNA;
+		}
+		
 	open LOW,">$low_gw_score_seq_file";
 	print LOW @$low_gw_score_seqs;
 	close LOW;
