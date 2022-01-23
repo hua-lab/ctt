@@ -212,6 +212,8 @@ sub finding_putative_new_loci {
 
     ##########################################
 
+    next unless((scalar @new_loci)>1);
+    
     my @new_locus_gdnas=();
 
     foreach my $new_locus (@new_loci) {
