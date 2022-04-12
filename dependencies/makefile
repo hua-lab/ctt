@@ -21,15 +21,15 @@ hmmer:
 	cd ; \
 	echo "-->step 2/?? installing hmmer..." ; \
 	cd ./ctt/dependencies/ ; \
-	wget http://eddylab.org/software/hmmer/hmmer-3.2.tar.gz ; \
-	tar -xvzf hmmer-3.2.tar.gz ; \
+	wget http://eddylab.org/software/hmmer/hmmer-3.3.2.tar.gz ; \
+	tar -xvzf hmmer-3.3.2.tar.gz ; \
 	cd hmmer* ; \
 	./configure --prefix $$HOME ; \
 	make ; \
 	make check ; \
 	make install ; \
 	cd .. ; \
-	rm -f hmmer-3.2.tar.gz*
+	rm -f hmmer-3.3.2.tar.gz*
 
 .PHONY: CD-HIT
 CD-HIT:
