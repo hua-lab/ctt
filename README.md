@@ -11,6 +11,7 @@ Several BioPerl modules, Bio::DB::Fasta, Bio::PrimarySeq, Bio::Pfam::Scan::PfamS
 		sudo yum -y install gcc git expat-devel perl-CGI perl-Clone perl-DB_File perl-DBD-MySQL perl-DBD-Pg 
 		sudo yum -y install perl-DBD-SQLite perl-Error perl-GD perl-XML-DOM perl-XML-LibXML perl-XML-Parser 
 		sudo yum -y install perl-XML-SAX-Writer perl-XML-Simple perl-XML-Writer perl-XML-Twig perl-File-Which perl-CPAN
+		sudo yum -y install perl-CPAN-DistnameInfo perl-core
 		sudo yum update -y nss curl libcurl
 		sudo yum -y groupinstall 'Development Tools'
 		
@@ -22,7 +23,7 @@ Several BioPerl modules, Bio::DB::Fasta, Bio::PrimarySeq, Bio::Pfam::Scan::PfamS
 		cpan>o conf commit
 		cpan>d /bioperl/
 		# select the most recent one to install.
-		cpan>install CJFIELDS/BioPerl-1.007002.tar.gz
+		cpan>install CJFIELDS/BioPerl-1.7.8.tar.gz
 		cpan>install ETHER/Moose-2.2011.tar.gz
 		cpan>install TODDR/IPC-Run-20180523.0.tar.gz
 		cpan>install CJFIELDS/Bio-FeatureIO-1.6.905.tar.gz
